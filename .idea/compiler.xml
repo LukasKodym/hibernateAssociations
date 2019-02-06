@@ -7,7 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="hibernate" />
-        <module name="HibernateAssociations" />
+        <module name="hibernateAssociations" />
         <module name="hqlDemo" />
       </profile>
     </annotationProcessing>

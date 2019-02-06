@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 import pl.lukas.hibernateAssociations.entity.Company;
 import pl.lukas.hibernateAssociations.entity.CompanyDetail;
 
-public class CascadeApp {
+public class CascadeRemoveApp {
 
     public static void main(String[] args) {
 
@@ -22,12 +22,10 @@ public class CascadeApp {
         // pobieranie sesji
         Session session = factory.getCurrentSession();
 
-        Company company = new Company("Orlen",200000000);
-        CompanyDetail detail = new CompanyDetail("Poland", 15000);
-        company.setCompanyDetail(detail);
-
         session.beginTransaction();
-        session.persist(company);
+
+        Company company = session.get(Company.class, 13);
+        session.remove(company);
 
         session.getTransaction().commit();
 

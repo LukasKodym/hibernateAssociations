@@ -15,7 +15,7 @@ public class Company {
     @Column(name = "value")
     private Integer value;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL) // PERSIST - zapis, REMOVE - usuwanie
     @JoinColumn(name = "id_company_detail")
     private CompanyDetail companyDetail;
 
