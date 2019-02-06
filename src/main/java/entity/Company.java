@@ -12,12 +12,12 @@ public class Company {
     private Integer idCompany;
     @Column(name = "name")
     private String name;
-    @Column(name = "vlaue")
+    @Column(name = "value")
     private Integer value;
 
     @OneToOne
     @JoinColumn(name = "id_company_detail")
-        private CompanyDetail companyDetail;
+    private CompanyDetail companyDetail;
 
     public Company() {
     }
@@ -49,6 +49,14 @@ public class Company {
 
     public void setValue(Integer value) {
         this.value = value;
+    }
+
+    public CompanyDetail getCompanyDetail() {
+        return companyDetail;
+    }
+
+    public void setCompanyDetail(CompanyDetail companyDetail) {
+        this.companyDetail = companyDetail;
     }
 
     @Override

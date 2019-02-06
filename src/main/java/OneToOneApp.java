@@ -1,7 +1,8 @@
+import entity.Company;
+import entity.CompanyDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
 public class OneToOneApp {
 
@@ -12,28 +13,25 @@ public class OneToOneApp {
         // wczytanie pliku konfiguracyjnego
         conf.configure("hibernate.cfg.xml");
         // wczytanie adnotacje klasy
-        conf.addAnnotatedClass(Employee.class);
+        conf.addAnnotatedClass(Company.class);
+        conf.addAnnotatedClass(CompanyDetail.class);
         // tworzenie obiektu SessionFactory
         SessionFactory factory = conf.buildSessionFactory();
         // pobieranie sesji
         Session session = factory.getCurrentSession();
 
+        Company company = new Company("Strefakursow",10000000);
+        CompanyDetail detail = new CompanyDetail("Poland", 150);
+        company.setCompanyDetail(detail);
+
         session.beginTransaction();
 
-        String avg = "select avg(e.salary) from Employee e";
-        String sum = "select sum(e.salary) from Employee e";
-        String min = "select min(e.salary) from Employee e";
-        String max = "select max(e.salary) from Employee e";
-        String count = "select count(e.) from Employee e";
+        session.save(detail);
+        session.save(company);
 
-
-        Query query = session.createQuery(count);
-
-        Long result = (Long) query.getSingleResult();
 
         session.getTransaction().commit();
 
-        System.out.println("Wynik: " + result);
 
         // zakończeine obiektu SessionFactory
         factory.close();
