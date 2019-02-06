@@ -1,5 +1,7 @@
-import entity.Company;
-import entity.CompanyDetail;
+package pl.lukas.hibernateAssociations;
+
+import pl.lukas.hibernateAssociations.entity.Company;
+import pl.lukas.hibernateAssociations.entity.CompanyDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

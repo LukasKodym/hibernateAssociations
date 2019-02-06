@@ -1,4 +1,4 @@
-package entity;
+package pl.lukas.hibernateAssociations.entity;
 
 import javax.persistence.*;
 
